@@ -3,7 +3,7 @@ theme = "hugo-theme-massively"
 
 defaultContentLanguage = "en"
 languageCode = "en-us"
-googleanalytics = "UA-104949268-1"
+googleanalytics = "UA-104949268-2"
 
 [params.posts]
   foldername = "post"
