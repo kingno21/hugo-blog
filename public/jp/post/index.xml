@@ -13,10 +13,10 @@
     
     <item>
       <title>ブログ書きましょう・Hugo・netlify</title>
-      <link>/jp/post/lets-blog/post1/</link>
+      <link>/jp/post/lets-blog/</link>
       <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/jp/post/lets-blog/post1/</guid>
+      <guid>/jp/post/lets-blog/</guid>
       <description>はじめに  ブログを書くことに何の意味がある？
  勉強したことの整理になるし、ほかの人がより簡単に情報収集することに貢献できるかつフォロワと議論もできるし、間違いなとをただしてもらえる
  どこで、書けばいいの &amp;gt; エンジニアなので、エンジニア事情しか知らなくて申し訳ないです。🙇‍♂️

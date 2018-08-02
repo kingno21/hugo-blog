@@ -1,6 +1,5 @@
 +++
 title = 'ブログ書きましょう・Hugo・netlify'
-slug = 'post1'
 image = 'images/letsblog/hugo.png'
 date = '2018-08-02T0:00:00'
 description = 'ブログの始めよう！'

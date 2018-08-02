@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+
+<html lang='jp'>
+	<head>
+		<title>ブログ書きましょう・Hugo・netlify &middot; KingNo21&#39;s Blog</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href='/assets/css/main.css' />
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+	</head>
+
+	<body lang='jp' class="is-loading">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/jp/' class="logo">KingNo21&#39;s Blog</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/jp/'>KingNo21&#39;s Blog</a></li>
+        
+        <li><a href='/jp/#footer'>Contact</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        <li><a href="https://twitter.com/No21King" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+        
+        
+        <li><a href="https://facebook.com/guang.king" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+        
+        
+        
+        <li><a href="https://www.linkedin.com/in/guang-king-bb592b150" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        
+        
+        <li><a href="https://github.com/kingno21" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">August 2, 2018</span>
+                                
+                                <h1>ブログ書きましょう・Hugo・netlify</h1>
+                                <p>ブログの始めよう！</p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/letsblog/hugo.png" alt="" /></div>
+                            
+                            
+
+<h2 id="はじめに">はじめに</h2>
+
+<blockquote>
+<p>ブログを書くことに何の意味がある？</p>
+</blockquote>
+
+<p>勉強したことの整理になるし、ほかの人がより簡単に情報収集することに貢献できるかつフォロワと議論もできるし、間違いなとをただしてもらえる</p>
+
+<blockquote>
+<p>どこで、書けばいいの
+&gt; エンジニアなので、エンジニア事情しか知らなくて申し訳ないです。🙇‍♂️</p>
+</blockquote>
+
+<ul>
+<li>日本: qiita, esa</li>
+<li>アメリカ: medium, 個人ブログ(の方が多い), stackoverflow, reddit</li>
+<li>中国: 博客园, github, 個人ブログ</li>
+<li>韓国: 企業ブログ(네이버, 카카오), 個人ブログ</li>
+</ul>
+
+<p>とかで、結構必要な情報は集まるはずです。見てわかるですが、個人ブログがまだ多数をしめている。</p>
+
+<blockquote>
+<p>書いていいどころはある？</p>
+</blockquote>
+
+<p>単純に考えて、エンジニアであればコードで採用とかしていると思いますが、githubで貢献できているエンジニアがまず少ないし、企業で貢献していると個人githubはコミットできなくなる傾向がある。次に、判断する材料としてブログは実績を見せられる媒体となっているので、いい武器になる</p>
+
+<h2 id="本題">本題</h2>
+
+<p>個人ブログを作る場合、qiitaもいい選択だし、英語だったらmediumとかもあるのでいいじゃんになるが、あくまでも、まとまる場所なので個人の色と性格を出しにくい</p>
+
+<p>海外のエンジニアを見てみるとやはり、個人のブログを運営して記事を書くのが多い。単純に個性を出しやすいしエンジニアリング力も見せられることができる</p>
+
+<h3 id="早速自分のブログを作りましょう">早速自分のブログを作りましょう</h3>
+
+<h4 id="hugo">Hugo</h4>
+
+<p><a href="https://gohugo.io/">Hugo</a>とのサイト作成プラットフォームがを見つけた(結構いろんな人が使ってブログ書いてたので気になって試した)。2013年から始まったみたいで、27632個の星をもらってるのでかなりいけてるみたい</p>
+
+<blockquote>
+<p>step1: first impressions</p>
+</blockquote>
+
+<p>ドキュメントなが！！！、量も多い</p>
+
+<blockquote>
+<p>step2: 耐えて読み進める</p>
+</blockquote>
+
+<p>さっぱり、眠い、訳わからないものを説明している</p>
+
+<blockquote>
+<p>step3: ダメだ、サンプル触ってみよう</p>
+</blockquote>
+
+<p>&hellip; dirが多い、<a href="https://github.com/gohugoio/hugo/tree/master/examples/blog">HugoDoc</a>さすが作書使いこなしている</p>
+
+<blockquote>
+<p>step4: 新しいサイト作ってみよう</p>
+</blockquote>
+
+<pre><code>// install hugo
+brew install hugo
+</code></pre>
+
+<pre><code>// create new site
+hugo new site blogSite
+
+// install themes
+// https://themes.gohugo.io/
+// select hello-friend theme
+
+cd blogSite
+git clone https://github.com/panr/hugo-theme-hello-friend.git themes/hello-friend
+
+// run site
+hugo server -t hello-friend
+
+// open chrome enter: http://localhost:1313
+// wala
+</code></pre>
+
+<blockquote>
+<p>step5: &hellip;</p>
+</blockquote>
+
+<p>できた、サイトがレンダリングされた。で、どうするか</p>
+
+<h4 id="実装">実装</h4>
+
+<p>いろいろ調べならが進んで、個人的にいいと思ったのは、まず、theme/exampleSiteを見てみましょう(今回はblogの構築に重点を置くので、ほかの機能は説明しません、知りたい時には自分に聞いてくださいできるだけ答えます)</p>
+
+<ul>
+<li>contents</li>
+<li>data</li>
+</ul>
+
+<p>この二つのdirに必要な情報が全て乗っている。とりあえず、theme/exampleSite/contentsの中身を全部rootにコピーしましょう、サイトで見てみよう</p>
+
+<ul>
+<li>contents
+
+<ul>
+<li>post
+
+<ul>
+<li>hello.md</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>なので、<a href="http://localhost:1313/post/hello/をみると、mdファイルの中身がレンダーされている!!!">http://localhost:1313/post/hello/をみると、mdファイルの中身がレンダーされている!!!</a></p>
+
+<ul>
+<li>data</li>
+</ul>
+
+<p>は、あれば移動して必要に編集して見てください。</p>
+
+<h4 id="編集">編集</h4>
+
+<p>sampleの最上部に区切られてる部分がると思いますが、レンダーに必要な情報を記述する部分になっているので、毎回変えれば簡単にタイトルと説明文が変わりますがテーマが壊れることがない</p>
+
+<p>実装を読んでみるとわかりますが、全てhtmlとcssで形を整ってから、templateエンジンを渡って変数を解釈する動作をしている。また、情報後から参照するために最適化された構成になっていることもわかる</p>
+
+<p>これからは、気合いと好みでcssを編集したり、HTMLを追加したりするのもありだし、themeを1から作るこの可能なので有志はやってください(freeで満足している)</p>
+
+<h3 id="作り終わった-出そう">作り終わった、出そう!</h3>
+
+<h4 id="github-io">github.io</h4>
+
+<p>エンジニアであれば、githubは持っていると思うので一番簡単になるはず</p>
+
+<p>「<user_name>.github.io」と、レポジトリを作って<code>blogSite/public</code>をデプロイしまよう</p>
+
+<p>詳しくは<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Github.io deploy</a></p>
+
+<h4 id="netlify">netlify</h4>
+
+<p>サイトのデプロイを簡単にしてくれるサイト、ドメインも購入できてデプロイも通知してくれるように設定可能</p>
+
+<p>説明いらないぐらい簡単<a href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify/">netlify deply</a></p>
+
+<h2 id="最後に">最後に</h2>
+
+<p>ブログ書きましょう！！！</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section>
+        <form method="post" action="post-action">
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" />
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" />
+            </div>
+            <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="3"></textarea>
+            </div>
+            <ul class="actions">
+                <li><input type="submit" value='Send A Message' /></li>
+            </ul>
+        </form>
+    </section>
+    
+    <section class="split contact">
+        
+        
+        
+        <section>
+            <h3>Email</h3>
+            <p><a href="mailto:kingno21@gmail.com">kingno21@gmail.com</a></p>
+        </section>
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                <li><a href="https://twitter.com/No21King" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                
+                
+                <li><a href="https://facebook.com/guang.king" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+                
+                
+                
+                <li><a href="https://www.linkedin.com/in/guang-king-bb592b150" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/kingno21" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; KingNo21&#39;s Blog</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Hugo Port: <a href="https://curtistimson.co.uk">curttimson</a></li></ul>
+</div>
+
+
+            </div>
+            
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-104949268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+            
+<script src='/assets/js/jquery.min.js'></script>
+<script src='/assets/js/jquery.scrollex.min.js'></script>
+<script src='/assets/js/jquery.scrolly.min.js'></script>
+<script src='/assets/js/skel.min.js'></script>
+<script src='/assets/js/util.js'></script>
+<script src='/assets/js/main.js'></script>
+
+
+	</body>
+</html>
