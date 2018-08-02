@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Releases on KingNo21&#39;s Blog</title>
+    <link>http://localhost:1313/categories/releases/</link>
+    <description>Recent content in Releases on KingNo21&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Mar 2014 17:21:33 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/releases/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo 0.10</title>
+      <link>http://localhost:1313/post/test2/</link>
+      <pubDate>Sat, 01 Mar 2014 17:21:33 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/test2/</guid>
+      <description>Syntax highlighting powered by pygments (slow) Ability to sort content many more ways Automatic table of contents generation Support for unicode URLs, aliases and indexes Configurable per-section permalink pattern support Support for paired shortcodes Shipping with some shortcodes (highlight &amp;amp; figure) Adding canonify option to keep URLs relative A bunch of additional template functions Watching very large sites now works on mac RSS generation improved. Limited to 50 items by default, can limit further in template Boolean params now supported in frontmatter Launched website showcase.</description>
+    </item>
+    
+    <item>
+      <title>Hugo 0.10</title>
+      <link>http://localhost:1313/post/test3/</link>
+      <pubDate>Sat, 01 Mar 2014 17:21:33 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/test3/</guid>
+      <description>Syntax highlighting powered by pygments (slow) Ability to sort content many more ways Automatic table of contents generation Support for unicode URLs, aliases and indexes Configurable per-section permalink pattern support Support for paired shortcodes Shipping with some shortcodes (highlight &amp;amp; figure) Adding canonify option to keep URLs relative A bunch of additional template functions Watching very large sites now works on mac RSS generation improved. Limited to 50 items by default, can limit further in template Boolean params now supported in frontmatter Launched website showcase.</description>
+    </item>
+    
+    <item>
+      <title>Hugo 0.10</title>
+      <link>http://localhost:1313/post/test4/</link>
+      <pubDate>Sat, 01 Mar 2014 17:21:33 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/test4/</guid>
+      <description>Syntax highlighting powered by pygments (slow) Ability to sort content many more ways Automatic table of contents generation Support for unicode URLs, aliases and indexes Configurable per-section permalink pattern support Support for paired shortcodes Shipping with some shortcodes (highlight &amp;amp; figure) Adding canonify option to keep URLs relative A bunch of additional template functions Watching very large sites now works on mac RSS generation improved. Limited to 50 items by default, can limit further in template Boolean params now supported in frontmatter Launched website showcase.</description>
+    </item>
+    
+    <item>
+      <title>Hugo 0.10</title>
+      <link>http://localhost:1313/post/test5/</link>
+      <pubDate>Sat, 01 Mar 2014 17:21:33 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/test5/</guid>
+      <description>Syntax highlighting powered by pygments (slow) Ability to sort content many more ways Automatic table of contents generation Support for unicode URLs, aliases and indexes Configurable per-section permalink pattern support Support for paired shortcodes Shipping with some shortcodes (highlight &amp;amp; figure) Adding canonify option to keep URLs relative A bunch of additional template functions Watching very large sites now works on mac RSS generation improved. Limited to 50 items by default, can limit further in template Boolean params now supported in frontmatter Launched website showcase.</description>
+    </item>
+    
+    <item>
+      <title>Hugo 0.10</title>
+      <link>http://localhost:1313/post/test6/</link>
+      <pubDate>Sat, 01 Mar 2014 17:21:33 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/test6/</guid>
+      <description>Syntax highlighting powered by pygments (slow) Ability to sort content many more ways Automatic table of contents generation Support for unicode URLs, aliases and indexes Configurable per-section permalink pattern support Support for paired shortcodes Shipping with some shortcodes (highlight &amp;amp; figure) Adding canonify option to keep URLs relative A bunch of additional template functions Watching very large sites now works on mac RSS generation improved. Limited to 50 items by default, can limit further in template Boolean params now supported in frontmatter Launched website showcase.</description>
+    </item>
+    
+    <item>
+      <title>Hugo 0.10</title>
+      <link>http://localhost:1313/post/test7/</link>
+      <pubDate>Sat, 01 Mar 2014 17:21:33 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/test7/</guid>
+      <description>Syntax highlighting powered by pygments (slow) Ability to sort content many more ways Automatic table of contents generation Support for unicode URLs, aliases and indexes Configurable per-section permalink pattern support Support for paired shortcodes Shipping with some shortcodes (highlight &amp;amp; figure) Adding canonify option to keep URLs relative A bunch of additional template functions Watching very large sites now works on mac RSS generation improved. Limited to 50 items by default, can limit further in template Boolean params now supported in frontmatter Launched website showcase.</description>
+    </item>
+    
+    <item>
+      <title>Hugo 0.10</title>
+      <link>http://localhost:1313/post/test8/</link>
+      <pubDate>Sat, 01 Mar 2014 17:21:33 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/test8/</guid>
+      <description>Syntax highlighting powered by pygments (slow) Ability to sort content many more ways Automatic table of contents generation Support for unicode URLs, aliases and indexes Configurable per-section permalink pattern support Support for paired shortcodes Shipping with some shortcodes (highlight &amp;amp; figure) Adding canonify option to keep URLs relative A bunch of additional template functions Watching very large sites now works on mac RSS generation improved. Limited to 50 items by default, can limit further in template Boolean params now supported in frontmatter Launched website showcase.</description>
+    </item>
+    
+    <item>
+      <title>Hugo 0.10</title>
+      <link>http://localhost:1313/post/test9/</link>
+      <pubDate>Sat, 01 Mar 2014 17:21:33 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/test9/</guid>
+      <description>Syntax highlighting powered by pygments (slow) Ability to sort content many more ways Automatic table of contents generation Support for unicode URLs, aliases and indexes Configurable per-section permalink pattern support Support for paired shortcodes Shipping with some shortcodes (highlight &amp;amp; figure) Adding canonify option to keep URLs relative A bunch of additional template functions Watching very large sites now works on mac RSS generation improved. Limited to 50 items by default, can limit further in template Boolean params now supported in frontmatter Launched website showcase.</description>
+    </item>
+    
+  </channel>
+</rss>
