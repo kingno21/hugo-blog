@@ -1,6 +1,5 @@
 title = "KingNo21's Blog"
 theme = "hugo-theme-massively"
-baseURL = "http://localhost:1313/"
 
 defaultContentLanguage = "en"
 languageCode = "en-us"

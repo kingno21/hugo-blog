@@ -2,14 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	
 	<sitemap>
-	   	<loc>jp/sitemap.xml</loc>
-		
-	   	<lastmod>2018-08-02T00:00:00+00:00</lastmod>
+	   	<loc>en/sitemap.xml</loc>
 		
 	</sitemap>
 	
 	<sitemap>
-	   	<loc>en/sitemap.xml</loc>
+	   	<loc>jp/sitemap.xml</loc>
+		
+	   	<lastmod>2018-08-02T00:00:00+00:00</lastmod>
 		
 	</sitemap>
 	
