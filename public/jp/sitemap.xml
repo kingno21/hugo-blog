@@ -3,47 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost:1313/jp/categories/</loc>
+    <loc>/jp/categories/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/categories/"
+                href="/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="jp"
-                href="http://localhost:1313/jp/categories/"
+                href="/jp/categories/"
                 />
   </url>
   
   <url>
-    <loc>http://localhost:1313/jp/</loc>
+    <loc>/jp/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/"
+                href="/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="jp"
-                href="http://localhost:1313/jp/"
+                href="/jp/"
                 />
   </url>
   
   <url>
-    <loc>http://localhost:1313/jp/tags/</loc>
+    <loc>/jp/tags/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/"
+                href="/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="jp"
-                href="http://localhost:1313/jp/tags/"
+                href="/jp/tags/"
                 />
   </url>
   
