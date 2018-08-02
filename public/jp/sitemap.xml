@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/jp/post/lets-blog/post1/</loc>
+    <lastmod>2018-08-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/jp/categories/</loc>
     <priority>0</priority>
     <xhtml:link
@@ -19,6 +24,7 @@
   
   <url>
     <loc>/jp/</loc>
+    <lastmod>2018-08-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -30,6 +36,12 @@
                 hreflang="jp"
                 href="/jp/"
                 />
+  </url>
+  
+  <url>
+    <loc>/jp/post/</loc>
+    <lastmod>2018-08-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
