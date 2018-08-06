@@ -1,0 +1,513 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Complex relational App by, ReactJS &#43; Firestore &#43; ServerLess &middot; KingNo21&#39;s Blog</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href='/assets/css/main.css' />
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+	</head>
+
+	<body lang='en' class="is-loading">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">KingNo21&#39;s Blog</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>KingNo21&#39;s Blog</a></li>
+        
+        <li><a href='/#footer'>Contact</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        <li><a href="https://twitter.com/No21King" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+        
+        
+        <li><a href="https://facebook.com/guang.king" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+        
+        
+        
+        <li><a href="https://www.linkedin.com/in/guang-king-bb592b150" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        
+        
+        <li><a href="https://github.com/kingno21" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">August 6, 2018</span>
+                                
+                                <h1>Complex relational App by, ReactJS &#43; Firestore &#43; ServerLess</h1>
+                                <p>Serverless Application with ReactJS &#43; Cloud Firestore deal with complex relational data, To improved atomic design in real application.</p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/firestorenextjsserverless/code.jpg" alt="" /></div>
+                            
+                            
+
+<h2 id="intro">Intro</h2>
+
+<p>As the need of serverless app group, client side have to deal with relational data either sql or nosql.</p>
+
+<p>i try to find best practice, but there is no good tutorial for complex relational nosql handle method which is needed by firestore/firebase to handle all data only by it.</p>
+
+<h2 id="problem">Problem</h2>
+
+<blockquote>
+<p>we assume backend support by firestore to achieve server-less.</p>
+</blockquote>
+
+<ul>
+<li>Manage Relational data with Server-less application is painful.</li>
+<li>firestore only support simple query.</li>
+<li>Javascript is running async with data query.</li>
+<li>ReactJS Component&rsquo;s code will grow too big, with more relational data.</li>
+</ul>
+
+<h3 id="example">example</h3>
+
+<h4 id="for-sql">for sql</h4>
+
+<p>we assume there are some data relation like this:
+<code>user -&gt; wallets -&gt; cards</code></p>
+
+<p>if we want to query the <code>cards</code> of user what is the best solution.
+if we using sql, it might like this.</p>
+
+<pre><code class="language-sql">select * from cards c
+inner join wallets w
+n w.id = c.wallet_id
+inner join user u
+on u.id = w.user_id
+;
+</code></pre>
+
+<h4 id="for-nosql">for nosql</h4>
+
+<p>if we using firestore, we will get two way to store data. flatten and nested show like below</p>
+
+<h5 id="flat-data-storage">flat data storage</h5>
+
+<pre><code class="language-json">{
+  &quot;users&quot;: [
+    {
+      &quot;id&quot;: &quot;xxx&quot;,
+    }
+  ],
+  &quot;wallet&quot;: [
+    {
+      &quot;id&quot;: &quot;yyy&quot;,
+      &quot;user_id&quot;: &quot;xxx&quot;,
+    }
+  ],
+  &quot;cards&quot;: [
+    {
+      &quot;id&quot;: &quot;zzz&quot;,
+      &quot;wallet_id&quot;: &quot;yyy&quot;,
+      &quot;name&quot;: &quot;kkk&quot;,
+    }
+  ]
+}
+</code></pre>
+
+<p>query will be</p>
+
+<pre><code class="language-javascript">firestore.collection('wallets')
+	.where('user_id', '==', user.id)
+	.get()
+	.then(collections =&gt; {
+		collections.forEach(collection =&gt; {
+			firestore.collection('cards')
+				.where('wallet_id', '==', collection.id)
+				.get()
+				.then(doc =&gt; {
+					console.log(`card is: ${doc.data().id}`)
+				})
+		})
+	})
+</code></pre>
+
+<h5 id="nested-data-storage">nested data storage</h5>
+
+<pre><code class="language-json">{
+  &quot;users&quot;: [
+    {
+      &quot;id&quot;: &quot;xxx&quot;,
+      &quot;wallets&quot;: [
+        {
+          &quot;id&quot;: &quot;yyy&quot;,
+          &quot;cards&quot;: [
+            {
+              &quot;id&quot;: &quot;zzz&quot;,
+              &quot;name&quot;: &quot;kkk&quot;
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+
+<p>query will be</p>
+
+<pre><code class="language-javascript">firestore.collection('users')
+	.doc(user.id)
+	.collection('wallet')
+	.get()
+	.then(collections =&gt; {
+		collections.forEach(collection =&gt; {
+			firestore.collection('cards')
+				.where('wallet_id', '==', collection.id)
+				.get()
+				.then(doc =&gt; {
+					console.log(`card is: ${doc.data().id}`)
+				})
+		})
+	})
+</code></pre>
+
+<p>so, as it shows 3 level of relation data will create this big query at firestore, what is it comes 4 level. And with atomic design, Component have to remain small and less dependency.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>With the idea of atomic design, what if i can split query part from component with HOC. And in advance split query with HOC at each level.</p>
+
+<h3 id="example-1">example</h3>
+
+<pre><code class="language-javascript">// user has many wallets
+// HOCao/queryUserHasManyWallets.jsx
+const queryUserHasManyWallets = (BaseComponent) {
+
+	type Props = {
+		user_id: string,
+		...any,
+	}
+
+	class HOC extends Component{
+		render() {
+			return (
+				&lt;BaseComponent
+					{...props}
+				/&gt;
+			)
+		}
+	}
+
+	const mapStateToProps = state =&gt; {
+		return {
+			wallets: state.firestore.ordered.wallets,
+		}
+	}
+
+	return compose(
+		firebaseConnect(props =&gt; [
+			{
+				collection: 'wallets',
+				where: ['user_id', '==', props.user_id]
+				storeAs: 'wallets'
+			}
+		]),
+		connect(mapStateToProps, null),
+	)(HOC);
+}
+
+export default queryUserHasManyWallets;
+</code></pre>
+
+<h3 id="explain">explain</h3>
+
+<p>like example, we using HOC to handle each query in each level, with split function which means we can create query HOC and Render Component separately. which will enhance atomic design with non-state component that can get props from HOCs.</p>
+
+<h3 id="a-sample-of-list-by-previous-architecture">A sample of list by previous architecture</h3>
+
+<h4 id="file-structure">file structure</h4>
+
+<pre><code>// HOC Query for general query
+HOCao/queryUserHasManyWallets.jsx
+HOCao/queryWalletHasManyCards.jsx
+
+// HOC Query for special cases
+qhoc/userCardsList.jsx
+
+// Atomic Design Component
+organisms/listBody.jsx
+molecules/list.jsx
+</code></pre>
+
+<h4 id="sample-code">sample code</h4>
+
+<pre><code class="language-javascript">// https://github.com/prescottprue/react-redux-firebase
+import {firebaseConnect, isEmpty} from 'react-redux-firebase';
+import { connect } from 'react-redux';
+import compose from 'recompose/compose';
+import {map} from 'lodash';
+
+// HOCao/queryUserHasManyWallets.jsx
+const queryUserHasManyWallets = (BaseComponent) {
+
+	type Props = {
+		user_id: string,
+		...any,
+	}
+
+	class HOC extends Component{
+		render() {
+			return (
+				&lt;BaseComponent
+					{...props}
+				/&gt;
+			)
+		}
+	}
+
+	const mapStateToProps = state =&gt; {
+		return {
+			wallets: state.firestore.ordered.wallets,
+		}
+	}
+
+	return compose(
+		firebaseConnect(props =&gt; [
+			{
+				collection: 'wallets',
+				where: ['user_id', '==', props.user_id]
+				storeAs: 'wallets'
+			}
+		]),
+		connect(mapStateToProps, null),
+	)(HOC);
+}
+
+export default queryUserHasManyWallets;
+
+// HOCao/queryWalletHasManyCards.jsx
+const queryWalletHasManyCards = (BaseComponent) {
+
+	type Props = {
+		wallet_id: string,
+		...any,
+	}
+
+	class HOC extends Component{
+		render() {
+			return (
+				&lt;BaseComponent
+					{...props}
+				/&gt;
+			)
+		}
+	}
+
+	const mapStateToProps = state =&gt; {
+		return {
+			cards: state.firestore.ordered.cards,
+		}
+	}
+
+	return compose(
+		firebaseConnect(props =&gt; [
+			{
+				collection: 'cards',
+				where: ['wallet_id', '==', props.wallet_id]
+				storeAs: 'cards'
+			}
+		]),
+		connect(mapStateToProps, null),
+	)(HOC);
+}
+
+export default queryWalletHasManyCards;
+
+// molecules/list.jsx
+type Props = {
+	user_id: string,
+	wallets: any,
+	cards: any,
+	...any,
+}
+
+const List = enhance(({cards}: Props) =&gt; {
+	return (
+		&lt;ul&gt;
+			{
+				!isEmpty(cards) &amp;&amp;
+				_.map(cards, (c) =&gt; {
+					return(
+						&lt;li&gt;{c.id}&lt;/li&gt;
+					)
+				})
+			}
+		&lt;/ul&gt;
+	)
+});
+
+export default List;
+
+// qhoc/userCardsList.jsx
+import List from 'molecules/list';
+import queryUserHasManyWallets from 'HOCao/queryUserHasManyWallets';
+import queryWalletHasManyCards from 'HOCao/queryWalletHasManyCards';
+
+const enhance = compose(
+	// add more qHOC if needed
+	queryUserHasManyWallets,
+	queryWalletHasManyCards
+);
+
+export default enhance(List);
+
+// organisms/listBody.jsx
+import HOCList from 'qhoc/userCardsList';
+import Head from 'molecules/head';
+
+const ListBody = () =&gt; {
+	return (
+		&lt;Head /&gt;
+		&lt;HOCList
+			user_id={&quot;xxx&quot;}
+		&gt;
+	)
+}
+
+export default ListBody;
+</code></pre>
+
+<h3 id="props">Props</h3>
+
+<ul>
+<li>enhance atomic design with Nosql Server interaction.</li>
+<li>easy to manage files with more efficient way.</li>
+<li>split Query part with design part, lower the cost.</li>
+</ul>
+
+<h3 id="cons">Cons</h3>
+
+<ul>
+<li>Will case slow rendering issue, case by async query.</li>
+<li>Many query will run each time, when state change.</li>
+</ul>
+
+<h3 id="some-advice">Some advice</h3>
+
+<ul>
+<li>with this kind of design, firestore should not using nested too much. because nested data will make too many dependency issue. and it will against the idea of atomic design.</li>
+</ul>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        <section>
+            <h3>Email</h3>
+            <p><a href="mailto:kingno21@gmail.com">kingno21@gmail.com</a></p>
+        </section>
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                <li><a href="https://twitter.com/No21King" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                
+                
+                <li><a href="https://facebook.com/guang.king" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+                
+                
+                
+                <li><a href="https://www.linkedin.com/in/guang-king-bb592b150" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/kingno21" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; KingNo21&#39;s Blog</li></ul>
+</div>
+
+
+            </div>
+            
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-104949268-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+            
+<script src='/assets/js/jquery.min.js'></script>
+<script src='/assets/js/jquery.scrollex.min.js'></script>
+<script src='/assets/js/jquery.scrolly.min.js'></script>
+<script src='/assets/js/skel.min.js'></script>
+<script src='/assets/js/util.js'></script>
+<script src='/assets/js/main.js'></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104949268-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104949268-2');
+</script>
+
+
+	</body>
+</html>

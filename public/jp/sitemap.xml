@@ -42,6 +42,16 @@
     <loc>/jp/post/</loc>
     <lastmod>2018-08-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="jp"
+                href="/jp/post/"
+                />
   </url>
   
   <url>
