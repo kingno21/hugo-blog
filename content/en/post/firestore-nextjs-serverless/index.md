@@ -129,7 +129,7 @@ firestore.collection('users')
 	})
 ```
 
-so, as it shows 3 level of relation data will create this big query at firestore, what is it comes 4 level. And with atomic design, Component have to remain small and less dependency.
+so, as it shows 3 level of relation data will create this big query at firestore, what if it comes 4 level. And with atomic design, Component have to remain small and less dependency.
 
 ## Solution
 
@@ -353,3 +353,6 @@ export default ListBody;
 
 * with this kind of design, firestore should not using nested too much. because nested data will make too many dependency issue. and it will against the idea of atomic design.
 
+### sample code can be find at:
+
+[https://github.com/kingno21/firestore-react-ssr#master](https://github.com/kingno21/firestore-react-ssr#master)
