@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>簡単 on KingNo21&#39;s Blog</title>
+    <link>/jp/tags/%E7%B0%A1%E5%8D%98/</link>
+    <description>Recent content in 簡単 on KingNo21&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/jp/tags/%E7%B0%A1%E5%8D%98/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ブログ書きましょう・Hugo・netlify</title>
+      <link>/jp/post/lets-blog/</link>
+      <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/jp/post/lets-blog/</guid>
+      <description>はじめに  ブログを書くことに何の意味がある？
+ 勉強したことの整理になるし、ほかの人がより簡単に情報収集することに貢献できるかつフォロワと議論もできるし、間違いなとをただしてもらえる
+ どこで、書けばいいの &amp;gt; エンジニアなので、エンジニア事情しか知らなくて申し訳ないです。🙇‍♂️
+  日本: qiita, esa アメリカ: medium, 個人ブログ(の方が多い), stackoverflow, reddit 中国: 博客园, github, 個人ブログ 韓国: 企業ブログ(네이버, 카카오), 個人ブログ  とかで、結構必要な情報は集まるはずです。見てわかるですが、個人ブログがまだ多数をしめている。
+ 書いていいどころはある？
+ 単純に考えて、エンジニアであればコードで採用とかしていると思いますが、githubで貢献できているエンジニアがまず少ないし、企業で貢献していると個人githubはコミットできなくなる傾向がある。次に、判断する材料としてブログは実績を見せられる媒体となっているので、いい武器になる
+本題 個人ブログを作る場合、qiitaもいい選択だし、英語だったらmediumとかもあるのでいいじゃんになるが、あくまでも、まとまる場所なので個人の色と性格を出しにくい
+海外のエンジニアを見てみるとやはり、個人のブログを運営して記事を書くのが多い。単純に個性を出しやすいしエンジニアリング力も見せられることができる
+早速自分のブログを作りましょう Hugo Hugoとのサイト作成プラットフォームがを見つけた(結構いろんな人が使ってブログ書いてたので気になって試した)。2013年から始まったみたいで、27632個の星をもらってるのでかなりいけてるみたい
+ step1: first impressions
+ ドキュメントなが！！！、量も多い
+ step2: 耐えて読み進める
+ さっぱり、眠い、訳わからないものを説明している
+ step3: ダメだ、サンプル触ってみよう
+ &amp;hellip; dirが多い、HugoDocさすが作書使いこなしている
+ step4: 新しいサイト作ってみよう
+ // install hugo brew install hugo  // create new site hugo new site blogSite // install themes // https://themes.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -17,7 +17,7 @@
       <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/firestore-nextjs-serverless/</guid>
-      <description>Intro As the need of serverless app group, client side have to deal with relational data either sql or nosql.
+      <description>Introduction As the need of serverless app group, client side have to deal with relational data either sql or nosql.
 i try to find best practice, but there is no good tutorial for complex relational nosql handle method which is needed by firestore/firebase to handle all data only by it.
 Problem  we assume backend support by firestore to achieve server-less.
   Manage Relational data with Server-less application is painful.</description>

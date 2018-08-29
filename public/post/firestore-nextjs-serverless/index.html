@@ -1,26 +1,35 @@
 <!DOCTYPE HTML>
 
 <html lang='en'>
-	<head>
-		<title>Complex relational App by, ReactJS &#43; Firestore &#43; ServerLess &middot; KingNo21&#39;s Blog</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href='/assets/css/main.css' />
-		
-		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
-	</head>
+  <head>
+    <title>Complex relational App by, ReactJS &#43; Firestore &#43; ServerLess &middot; KingNo21&#39;s Blog</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>KingNo21's Blog</title>
+    <meta name="description" content="Some issue or new idea of engineering life" />
+    <link rel="stylesheet" href='/assets/css/main.css' />
+    
+    <link rel="manifest" href="/manifest.json" />
+    <noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+  </head>
 
-	<body lang='en' class="is-loading">
+<head>
+  
+    <meta name='keywords' content='firestore,complex,nosql,sql,react,reactjs,nextjs,' />
+  
+  <meta name='description' content='Serverless Application with ReactJS &#43; Cloud Firestore deal with complex relational data, To improved atomic design in real application.' />
+</head>
+<body lang='en' class="is-loading">
 
-		
-			<div id="wrapper">
+  
+  <div id="wrapper">
 
-                
+    
 <header id="header">
     <a href='/' class="logo">KingNo21&#39;s Blog</a>
 </header>
 
-                
+    
 
 <nav id="nav">
     <ul class="links">
@@ -54,24 +63,24 @@
 </nav>
 
 
-				
-					<div id="main">
+    
+    <div id="main">
 
-						
-                        <section class="post">
-                            <header class="major">
-                                
-                                <span class="date">August 6, 2018</span>
-                                
-                                <h1>Complex relational App by, ReactJS &#43; Firestore &#43; ServerLess</h1>
-                                <p>Serverless Application with ReactJS &#43; Cloud Firestore deal with complex relational data, To improved atomic design in real application.</p>
-                            </header>
-                            
-                            <div class="image main"><img src="/images/firestorenextjsserverless/code.jpg" alt="" /></div>
-                            
-                            
+      
+      <section class="post">
+        <header class="major">
+          
+          <span class="date">August 6, 2018</span>
+          
+          <h1>Complex relational App by, ReactJS &#43; Firestore &#43; ServerLess</h1>
+          <p>Serverless Application with ReactJS &#43; Cloud Firestore deal with complex relational data, To improved atomic design in real application.</p>
+        </header>
+        
+        <div class="image main"><img src="/images/firestorenextjsserverless/code.jpg" alt="" /></div>
+        
+        
 
-<h2 id="intro">Intro</h2>
+<h2 id="introduction">Introduction</h2>
 
 <p>As the need of serverless app group, client side have to deal with relational data either sql or nosql.</p>
 
@@ -193,7 +202,7 @@ on u.id = w.user_id
 	})
 </code></pre>
 
-<p>so, as it shows 3 level of relation data will create this big query at firestore, what is it comes 4 level. And with atomic design, Component have to remain small and less dependency.</p>
+<p>so, as it shows 3 level of relation data will create this big query at firestore, what if it comes 4 level. And with atomic design, Component have to remain small and less dependency.</p>
 
 <h2 id="solution">Solution</h2>
 
@@ -420,17 +429,19 @@ export default ListBody;
 <li>with this kind of design, firestore should not using nested too much. because nested data will make too many dependency issue. and it will against the idea of atomic design.</li>
 </ul>
 
+<h3 id="sample-code-can-be-find-at">sample code can be find at:</h3>
 
-                            
-                            
-                            
-                            
-                            
-                        </section>
+<p><a href="https://github.com/kingno21/firestore-react-ssr#master">https://github.com/kingno21/firestore-react-ssr#master</a></p>
 
-					</div>
 
-                    
+        
+
+        
+      </section>
+
+    </div>
+
+    
 
 <footer id="footer">
     
@@ -470,14 +481,14 @@ export default ListBody;
     </section>
 </footer>
 
-                    
+    
 <div id="copyright">
     <ul><li>&copy; KingNo21&#39;s Blog</li></ul>
 </div>
 
 
-            </div>
-            
+  </div>
+  
 <script>
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -491,7 +502,7 @@ if (!doNotTrack) {
 }
 </script>
 
-            
+  
 <script src='/assets/js/jquery.min.js'></script>
 <script src='/assets/js/jquery.scrollex.min.js'></script>
 <script src='/assets/js/jquery.scrolly.min.js'></script>
@@ -509,5 +520,5 @@ if (!doNotTrack) {
 </script>
 
 
-	</body>
+</body>
 </html>

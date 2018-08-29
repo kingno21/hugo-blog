@@ -1,0 +1,9 @@
+{
+  "name": "KingNo21's blog",
+  "short_name": "KingNo21's blog",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "kingno21's developer blog"
+}
+
