@@ -4,6 +4,7 @@ theme = "hugo-theme-massively"
 defaultContentLanguage = "en"
 languageCode = "en-us"
 googleanalytics = "UA-104949268-2"
+enableRobotsTXT = true
 
 [params.posts]
   foldername = "post"

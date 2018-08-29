@@ -3,6 +3,7 @@ theme = "hugo-theme-massively"
 
 defaultContentLanguage = "en"
 languageCode = "en-us"
+enableRobotsTXT = true
 
 # [params]
   # set below parameter to define a favicon

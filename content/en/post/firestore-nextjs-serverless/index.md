@@ -3,10 +3,11 @@ title = 'Complex relational App by, ReactJS + Firestore + ServerLess'
 image = 'images/firestorenextjsserverless/code.jpg'
 date = '2018-08-06T0:00:00'
 description = 'Serverless Application with ReactJS + Cloud Firestore deal with complex relational data, To improved atomic design in real application.'
-disableComments = false
+disableComments = true
+tags = ['firestore', 'complex', 'nosql']
 +++
 
-## Intro
+## Introduction
 
 As the need of serverless app group, client side have to deal with relational data either sql or nosql. 
 
