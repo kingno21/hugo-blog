@@ -1,3 +1,4 @@
 User-agent: *
+Sitemap: https://angry-johnson-99693b.netlify.com/sitemap.xml
 Disallow: 
 
