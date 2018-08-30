@@ -6,10 +6,19 @@
     <description>Recent content in Tags on KingNo21&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Async</title>
+      <link>/tags/async/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/async/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Complex</title>
@@ -23,7 +32,7 @@
     <item>
       <title>Firestore</title>
       <link>/tags/firestore/</link>
-      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/firestore/</guid>
       <description></description>
@@ -32,7 +41,7 @@
     <item>
       <title>Nextjs</title>
       <link>/tags/nextjs/</link>
-      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/nextjs/</guid>
       <description></description>
@@ -41,7 +50,7 @@
     <item>
       <title>Nosql</title>
       <link>/tags/nosql/</link>
-      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/nosql/</guid>
       <description></description>
@@ -50,7 +59,7 @@
     <item>
       <title>React</title>
       <link>/tags/react/</link>
-      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/react/</guid>
       <description></description>
@@ -59,7 +68,7 @@
     <item>
       <title>Reactjs</title>
       <link>/tags/reactjs/</link>
-      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/reactjs/</guid>
       <description></description>
@@ -71,6 +80,15 @@
       <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Update</title>
+      <link>/tags/update/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/update/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,21 @@
     <description>Recent content in Reactjs on KingNo21&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/reactjs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Don&#39;t use firestore/firebase at ReactJS Update cycle</title>
+      <link>/post/firestore-reactjs-update-cycle/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/firestore-reactjs-update-cycle/</guid>
+      <description>Problem in case when i create chat application. for morden design of chat, we always render 30 messages at once and scroll to Top to loading more messages. when i create firestore base application i have to deal limitation by locally because of SSR.
+The easiest way is to using limits at firestore query. which seems like.
+firestore.collection(&#39;messages&#39;) .limit(dynamicLimit) .snapShot()   sample below is short handle, check Firestore Query for more detail.</description>
+    </item>
     
     <item>
       <title>Complex relational App by, ReactJS &#43; Firestore &#43; ServerLess</title>

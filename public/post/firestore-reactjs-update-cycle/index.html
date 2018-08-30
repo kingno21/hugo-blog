@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+  <head>
+    <title>Don&#39;t use firestore/firebase at ReactJS Update cycle &middot; KingNo21&#39;s Blog</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>KingNo21's Blog</title>
+    <meta name="description" content="Some issue or new idea of engineering life" />
+    <link rel="stylesheet" href='/assets/css/main.css' />
+    
+    <link rel="manifest" href="/manifest.json" />
+    <noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+  </head>
+
+<head>
+  
+    <meta name='keywords' content='firestore,nosql,react,reactjs,nextjs,update,async,' />
+  
+  <meta name='description' content='make a query inside of update cycle will break reactjs normal lifecycle.' />
+</head>
+<body lang='en' class="is-loading">
+
+  
+  <div id="wrapper">
+
+    
+<header id="header">
+    <a href='/' class="logo">KingNo21&#39;s Blog</a>
+</header>
+
+    
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>KingNo21&#39;s Blog</a></li>
+        
+        <li><a href='/#footer'>Contact</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        <li><a href="https://twitter.com/No21King" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+        
+        
+        <li><a href="https://facebook.com/guang.king" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+        
+        
+        
+        <li><a href="https://www.linkedin.com/in/guang-king-bb592b150" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        
+        
+        <li><a href="https://github.com/kingno21" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+    
+    <div id="main">
+
+      
+      <section class="post">
+        <header class="major">
+          
+          <span class="date">August 30, 2018</span>
+          
+          <h1>Don&#39;t use firestore/firebase at ReactJS Update cycle</h1>
+          <p>make a query inside of update cycle will break reactjs normal lifecycle.</p>
+        </header>
+        
+        <div class="image main"><img src="/images/firestorereactupdatecycle/code.png" alt="" /></div>
+        
+        
+
+<h2 id="problem">Problem</h2>
+
+<p>in case when i create chat application. for morden design of chat, we always render 30 messages at once and scroll to Top to loading more messages. when i create firestore base application i have to deal limitation by locally because of SSR.</p>
+
+<p>The easiest way is to using limits at firestore query. which seems like.</p>
+
+<pre><code class="language-javascript">firestore.collection('messages')
+    .limit(dynamicLimit)
+    .snapShot()
+</code></pre>
+
+<blockquote>
+<p>sample below is short handle, check <a href="https://firebase.google.com/docs/firestore/query-data/queries">Firestore Query</a> for more detail.</p>
+</blockquote>
+
+<p>For ReactJS lifecycle, change <code>limit</code> is done by change <code>props/state</code> to trigger update cycle. So i try to put this query inside of <code>componentWillUpdate</code>, but this case a big performance problem which is obvious because query is slow down render process.</p>
+
+<p>So, normally we will think about async process, so i try</p>
+
+<pre><code class="language-javascript">async componentWillUpdate() {
+    await firestore...
+            .limit(dynamicLimit)
+            .snapShot(doc =&gt; {
+                this.setState({...})
+                return true
+            })
+}
+</code></pre>
+
+<p>its works, but i work too mush every time <code>props/state</code> runs will trigger this query. so what i try is using <code>shouldComponentUpdate</code> which will let us decide re-render or not. the code is look like this.</p>
+
+<pre><code class="language-javascript">async shouldComponentUpdate() {
+    if (...) return false
+    await firestore...
+            .limit(dynamicLimit)
+            .snapShot(doc =&gt; {
+                this.setState({...})
+                return true
+            })
+    return true
+}
+</code></pre>
+
+<p>yes, it work at first. but when i debug, there is something bad happened. <code>shouldComponentUpdate</code> is <code>return true</code> even query is not finish. and <code>shouldComponentUpdate</code> is triggered multi times. Which means async process is <code>return true</code> anyway. and render process to child nodes is still running.</p>
+
+<p>So the reason why it run is case by inner state change of React Lifecycle.</p>
+
+<p><img src="/images/firestorereactupdatecycle/image01.png" alt="img" /></p>
+
+<p>like image below, ansyc process is running even query is not finish so <code>setState</code> is trigger an other <code>shouldComponentUpdate</code> and <code>render</code> multi times and query is made by every time it triggered and only way to stop this cycle is <code>return false</code> which is condition by <code>if</code>, so either <code>shouldComponentUpdate</code> and <code>componentWillUpdate</code> is not good to handle <code>firestore</code>.</p>
+
+<h2 id="solution">Solution</h2>
+
+<ol>
+<li>move query to <code>componentDidMount/componentWillMount/contructor/getInitialProps</code></li>
+<li>make HOC to handle all changes</li>
+<li>split query from <code>react</code> application</li>
+</ol>
+
+
+        
+
+        
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kingno21s-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+      </section>
+
+    </div>
+
+    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        <section>
+            <h3>Email</h3>
+            <p><a href="mailto:kingno21@gmail.com">kingno21@gmail.com</a></p>
+        </section>
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                <li><a href="https://twitter.com/No21King" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                
+                
+                <li><a href="https://facebook.com/guang.king" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+                
+                
+                
+                <li><a href="https://www.linkedin.com/in/guang-king-bb592b150" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/kingno21" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+    
+<div id="copyright">
+    <ul><li>&copy; KingNo21&#39;s Blog</li></ul>
+</div>
+
+
+  </div>
+  
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-104949268-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  
+<script src='/assets/js/jquery.min.js'></script>
+<script src='/assets/js/jquery.scrollex.min.js'></script>
+<script src='/assets/js/jquery.scrolly.min.js'></script>
+<script src='/assets/js/skel.min.js'></script>
+<script src='/assets/js/util.js'></script>
+<script src='/assets/js/main.js'></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104949268-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104949268-2');
+</script>
+
+
+</body>
+</html>

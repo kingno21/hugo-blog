@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>KingNo21&#39;s Blog</title>
-    <link>/</link>
-    <description>Recent content on KingNo21&#39;s Blog</description>
+    <title>Update on KingNo21&#39;s Blog</title>
+    <link>/tags/update/</link>
+    <description>Recent content in Update on KingNo21&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/update/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,18 +20,6 @@
       <description>Problem in case when i create chat application. for morden design of chat, we always render 30 messages at once and scroll to Top to loading more messages. when i create firestore base application i have to deal limitation by locally because of SSR.
 The easiest way is to using limits at firestore query. which seems like.
 firestore.collection(&#39;messages&#39;) .limit(dynamicLimit) .snapShot()   sample below is short handle, check Firestore Query for more detail.</description>
-    </item>
-    
-    <item>
-      <title>Complex relational App by, ReactJS &#43; Firestore &#43; ServerLess</title>
-      <link>/post/firestore-nextjs-serverless/</link>
-      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/firestore-nextjs-serverless/</guid>
-      <description>Introduction As the need of serverless app group, client side have to deal with relational data either sql or nosql.
-i try to find best practice, but there is no good tutorial for complex relational nosql handle method which is needed by firestore/firebase to handle all data only by it.
-Problem  we assume backend support by firestore to achieve server-less.
-  Manage Relational data with Server-less application is painful.</description>
     </item>
     
   </channel>
