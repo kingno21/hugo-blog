@@ -4,6 +4,7 @@ theme = "hugo-theme-massively"
 defaultContentLanguage = "en"
 languageCode = "en-us"
 enableRobotsTXT = true
+disqusShortname = "kingno21s-blog"
 
 # [params]
   # set below parameter to define a favicon
