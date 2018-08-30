@@ -3,7 +3,7 @@ title = 'Complex relational App by, ReactJS + Firestore + ServerLess'
 image = 'images/firestorenextjsserverless/code.jpg'
 date = '2018-08-06T0:00:00'
 description = 'Serverless Application with ReactJS + Cloud Firestore deal with complex relational data, To improved atomic design in real application.'
-disableComments = true
+disableComments = false
 tags = ['firestore', 'complex', 'nosql', 'sql', 'react', 'reactjs', 'nextjs']
 +++
 
